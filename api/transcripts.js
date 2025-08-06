@@ -39,4 +39,8 @@ app.post('/transcripts', async (req, res) => {
   res.json(transcripts);
 });
 
+app.get('/transcripts', (req, res) => {
+  res.json({ message: 'GET request received. Use POST to fetch transcripts.' });
+});
+
 module.exports = app;
