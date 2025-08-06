@@ -1,5 +1,5 @@
 const express = require('express');
-const YouTubeTranscriptApi = require('youtube-transcript-api');
+const { YoutubeTranscript } = require('youtube-transcript');
 const cors = require('cors');
 
 const app = express();
@@ -17,8 +17,8 @@ app.post('/transcripts', async (req, res) => {
       continue;
     }
     try {
-      const transcript = await YouTubeTranscriptApi.getTranscript(videoId);
-      transcripts[url] = transcript.map(t => `${t.start.toFixed(2)} --> ${(t.start + t.duration).toFixed(2)}\n${t.text}`).join('\n');
+      const transcript = await YoutubeTranscript.fetchTranscript(videoId);
+      transcripts[url] = transcript.map(t => `${t.offset / 1000} --> ${(t.offset / 1000) + t.duration / 1000}\n${t.text}`).join('\n');
     } catch (error) {
       transcripts[url] = `Error: ${error.message}`;
     }
