@@ -10,12 +10,12 @@
     {
       "src": "/api/transcripts",
       "dest": "/api/transcripts.js",
-      "methods": ["POST"]
+      "methods": ["POST", "GET"]
     },
     {
       "src": "/api/(.*)",
       "dest": "/api/transcripts.js",
-      "methods": ["POST"]
+      "methods": ["POST", "GET"]
     }
   ]
 }
