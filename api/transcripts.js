@@ -3,7 +3,7 @@ const YouTubeTranscriptApi = require('youtube-transcript-api');
 const cors = require('cors');
 
 const app = express();
-app.use(cors({ origin: ['https://your-username.github.io'] }));
+app.use(cors({ origin: ['https://oscar200442.github.io'] }));
 app.use(express.json());
 
 app.post('/transcripts', async (req, res) => {
